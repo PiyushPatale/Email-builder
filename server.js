@@ -12,10 +12,16 @@ const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
+// app.use(cors({
+//   origin: '*',  // Allow all origins
+//   methods: ['GET', 'POST'],  // Allow only GET and POST methods
+//   allowedHeaders: ['Content-Type'],  // Allow only 'Content-Type' header
+// }));
+
+const cors = require('cors');
 app.use(cors({
-  origin: '*',  // Allow all origins
-  methods: ['GET', 'POST'],  // Allow only GET and POST methods
-  allowedHeaders: ['Content-Type'],  // Allow only 'Content-Type' header
+  origin: 'https://email-builder-azure.vercel.app', // Replace '*' with the specific frontend domain
+  methods: ['GET', 'POST'],
 }));
 
 const PORT = process.env.PORT || 8000;
