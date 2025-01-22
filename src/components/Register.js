@@ -79,6 +79,7 @@ class Register extends Component
                     <Input type="password"
                         value={this.state.password} 
                         onChange = { (event) => this.onInputChange("password",event.target.value) }
+                        autoComplete="current-password"
                     />
                     <div className="btn_container" >
                         <Button color="primary" type="submit" >

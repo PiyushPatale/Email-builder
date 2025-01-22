@@ -20,9 +20,11 @@ app.use(bodyParser.json());
 
 const cors = require('cors');
 app.use(cors({
-  origin: 'https://email-builder-azure.vercel.app', // Replace '*' with the specific frontend domain
+  origin: ['https://email-builder-azure.vercel.app'], // Allow specific frontend domain
   methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'], // Include Authorization for token usage
 }));
+
 
 const PORT = process.env.PORT || 8000;
 const SECRET = "secret_key_for_auth_tokens";
