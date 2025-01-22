@@ -12,18 +12,18 @@ const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-// app.use(cors({
-//   origin: '*',  // Allow all origins
-//   methods: ['GET', 'POST'],  // Allow only GET and POST methods
-//   allowedHeaders: ['Content-Type'],  // Allow only 'Content-Type' header
-// }));
-
-const cors = require('cors');
 app.use(cors({
-  origin: ['https://email-builder-azure.vercel.app'], // Allow specific frontend domain
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization'], // Include Authorization for token usage
+  origin: '*',  // Allow all origins
+  methods: ['GET', 'POST'],  // Allow only GET and POST methods
+  allowedHeaders: ['Content-Type'],  // Allow only 'Content-Type' header
 }));
+
+// const cors = require('cors');
+// app.use(cors({
+//   origin: ['https://email-builder-azure.vercel.app'], // Allow specific frontend domain
+//   methods: ['GET', 'POST'],
+//   allowedHeaders: ['Content-Type', 'Authorization'], // Include Authorization for token usage
+// }));
 
 
 const PORT = process.env.PORT || 8000;
