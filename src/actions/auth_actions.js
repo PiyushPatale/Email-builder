@@ -2,47 +2,31 @@
 import axios from 'axios';
 import _ from 'lodash';
 
-
-const API_URL = process.env.REACT_APP_BACKEND_URL;
-
-// export function register(username, email, password)
-// {
-//     return dispatch => {
-
-//         axios({
-//             url: '/register',
-//             method: "post",
-//             headers:{
-//                 'Content-Type': 'application/json'
-//             },
-//             data:{
-//                 username, 
-//                 email, 
-//                 password
-//             }
-//         })
-//         .then( res => {
-//             alert("Registration Successful!");
-//         })
-//         .catch( err => {
-//             alert(err);
-//         });
-
-//     }
-// }
-
-export function register(username, email, password) {
+export function register(username, email, password)
+{
     return dispatch => {
-      axios.post(`${API_URL}/register`, { username, email, password })
-        .then(res => {
-          alert('Registration Successful!');
+
+        axios({
+            url: '/register',
+            method: "post",
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            data:{
+                username, 
+                email, 
+                password
+            }
         })
-        .catch(err => {
-          console.error('Error:', err);
-          alert('Registration failed.');
+        .then( res => {
+            alert("Registration Successful!");
+        })
+        .catch( err => {
+            alert(err);
         });
-    };
-  }
+
+    }
+}
 
 export function login(email, password)
 {
