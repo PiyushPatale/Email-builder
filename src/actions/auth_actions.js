@@ -7,7 +7,7 @@ export function register(username, email, password)
     return dispatch => {
 
         axios({
-            url: 'https://email-builder-ppwrgxj0b-piyush-patales-projects.vercel.app/register',
+            url: '/register',
             method: "post",
             headers:{
                 'Content-Type': 'application/json'

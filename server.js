@@ -12,7 +12,11 @@ const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
 
-app.use(cors());
+app.use(cors({
+  origin: '*',  // Allow all origins
+  methods: ['GET', 'POST'],  // Allow only GET and POST methods
+  allowedHeaders: ['Content-Type'],  // Allow only 'Content-Type' header
+}));
 
 const PORT = process.env.PORT || 8000;
 const SECRET = "secret_key_for_auth_tokens";
