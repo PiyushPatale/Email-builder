@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -10,6 +11,8 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+
+app.use(cors());
 
 const PORT = process.env.PORT || 8000;
 const SECRET = "secret_key_for_auth_tokens";
